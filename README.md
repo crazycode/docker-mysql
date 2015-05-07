@@ -1,7 +1,12 @@
 # Summary
 
-This a image like offical mysql docker image, but support create multi-database when start the container.
+This image is similar to offical mysql docker image, with multi-database support.
 
+    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw \
+        -e MYSQL_DATABASE=default_db \
+        -e MYSQL_DATABASE1=project1_db \
+        -e MYSQL_DATABASE2=project2_db \
+        -d crazycode/mysql
 
 # How to use this image
 
@@ -68,13 +73,7 @@ This variable is optional and allows you to specify the name of a database to be
 
 ### `MYSQL_DATABASE0` ... `MYSQL_DATABASE9`
 
-This variable is optional and allows you to specify the name of other databases to be created on image startup. If a user/password was supplied (see below) then that user will be granted superuser access ([corresponding to `GRANT ALL`](http://dev.mysql.com/doc/en/adding-users.html)) to this database.
-
-    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw \
-        -e MYSQL_DATABASE=default_db \
-        -e MYSQL_DATABASE1=project1_db \
-        -e MYSQL_DATABASE3=project3_db \
-        -d crazycode/mysql
+These variables are optional and allow you to specify the name of other databases to be created on image startup. If a user/password was supplied (see below) then that user will be granted superuser access ([corresponding to `GRANT ALL`](http://dev.mysql.com/doc/en/adding-users.html)) to this database.
 
 ### `MYSQL_USER`, `MYSQL_PASSWORD`
 
